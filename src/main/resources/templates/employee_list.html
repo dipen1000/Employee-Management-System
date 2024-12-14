@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-full bg-gray-100">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full">
+
+<div class="min-h-full">
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <div class="flex items-center">
+                    <div class="shrink-0">
+						<a th:href="@{/}"> 
+							<img th:src="@{/Images/seaface.jpeg}" alt="Seaface" class="rounded-full w-16 h-16 object-cover">
+						</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a th:href="@{/employee_list}" class="rounded-md bg-gray-900 px-3 py-2 text-lg font-medium text-white" aria-current="page">Dashboard</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-lg font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-lg font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-lg font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-lg font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900">List of Employees</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+
+            <!-- Flash Message Display -->
+            <div th:if="${message}"  class="bg-green-200 border border-green-400 border-solid mb-5 p-2 rounded-md text-green-900">
+                <p th:text="${message}"></p>
+            </div>
+
+            <a th:href="@{'/create'}" class="bg-blue-600 font-medium px-3 py-2 rounded-md text-sm text-white inline-block mb-5 hover:bg-blue-700"> Add New Employee</a>
+            <table class="table-auto w-full">
+                <thead class="bg-gray-800 text-white uppercase">
+                <tr>
+                    <th class="px-6 py-3 text-center">ID</th>
+                    <th class="px-6 py-3 text-center">First Name</th>
+                    <th class="px-6 py-3 text-center">Last Name</th>
+                    <th class="px-6 py-3 text-center">Email</th>
+                    <th class="px-6 py-3 text-center">Phone</th>
+                    <th class="px-6 py-3 text-center">Department</th>
+					<th class="px-6 py-3 text-center">Action</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" th:each="employee: ${employeeList}">
+                    <td class="px-6 py-4 text-center" th:text="${employee.id}"></td>
+                    <td class="px-6 py-4 text-center" th:text="${employee.firstName}"></td>
+                    <td class="px-6 py-4 text-center" th:text="${employee.lastName}"></td>
+                    <td class="px-6 py-4 text-center" th:text="${employee.phone}"></td>
+                    <td class="px-6 py-4 text-center" th:text="${employee.email}"></td>
+					<td class="px-6 py-4 text-center" th:text="${employee.department}"></td>
+                    <td class="px-6 py-4 text-center">
+                        <a th:href="@{/employee/{id}(id=${employee.id})}" class="bg-green-600 font-medium hover:bg-green-700 px-3 py-2 rounded-md text-sm text-white">View</a>
+                        <a th:href="@{/employee/{id}/edit(id=${employee.id})}" class="bg-blue-600 font-medium hover:bg-blue-700 px-3 py-2 rounded-md text-sm text-white">Edit</a>
+                        <a th:href="@{/employee/{id}/delete(id=${employee.id})}" class="bg-red-600 font-medium hover:bg-red-700 px-3 py-2 rounded-md text-sm text-white">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+
+</body>
+</html>

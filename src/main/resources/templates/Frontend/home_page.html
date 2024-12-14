@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/CSS/home_page.css}">
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>        
+        <div class="header-wrapper">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+
+        <nav class="navbar">
+            <img src="/Images/seaface.jpeg" alt="" class="logo">
+            <a href="#home" class="firsta">Home</a>
+            <a href="#aboutUs">About Us</a>
+            <a href="#footer">Contact Us</a>
+			<a th:href="@{/employee_list}">Login</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="content">
+            <h2>SEAFACE HOME & HEALTHCARE <span>PVT.LTD</span></h2>
+            <!-- <h2 class="spann">PVT.LTD</h2> -->
+        </div>
+        <div class="imagecontainer">
+            <img src="/Images/Team 03.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section class="aboutUs" id="aboutUs">
+        <h1>About Us</h1>
+        <div class="about">
+            <div class="imageContainer">
+                <img src="/Images/about us.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, molestias!</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footerPart" id="footer">
+        <div class="footer1">
+            <h1>Seaface Home & HealthCare</h1>
+            <p class="para">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad enim atque voluptates excepturi facilis saepe consequuntur quia, sed magni alias.
+            </p>
+        </div>
+        <div class="footer2">
+            <h1>Quick Links</h1>
+            <ul>
+                <a href="https://mail.google.com/mail/u/0/#inbox">sandhya@gmail.com</a> <br>
+                <a href="https://www.facebook.com/seafacehomeandhealthcare">seaface home & healthcare</a>
+            </ul>
+        </div>
+        <div class="footer3">
+            <h1>Customer Support</h1>
+            <ul>
+                <li>9847024541</li>
+                <li>9857010741</li>
+            </ul>
+        </div>
+        <div class="footer4">
+            <h1>Social Media</h1>
+            <div class="social">
+                <div class="fb">
+                    <a href="www.facebook.com"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="in">
+                    <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="wh">
+                    <a href="www.whatsapp.com"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+    </section>
+</body>
+</html>
